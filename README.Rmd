@@ -66,9 +66,9 @@ cat.yr <- sort(tapply(ipa$year, ipa$category, min))
 ipa$category <- ordered(ipa$category, names(cat.yr))
 ```
 
-Bar chart showing the bewildering increase in IPA "styles" over time. Millennials clearly to blame.
+Bar chart showing the bewildering increase in IPA styles over time. Millennials clearly to blame.
 
-```{r graphic}
+```{r graphic, dpi=300}
 p1 <- ggplot(data=ipa, aes(x=year, y=awards, fill=category)) + geom_bar(stat="identity") +
   geom_curve(aes(x=2000, y=3, xend=2018, yend=8), col=2, size=1.5, 
                arrow=arrow(length=unit(0.02,"npc"))) +

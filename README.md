@@ -71,7 +71,7 @@ cat.yr <- sort(tapply(ipa$year, ipa$category, min))
 ipa$category <- ordered(ipa$category, names(cat.yr))
 ```
 
-Bar chart showing the bewildering increase in IPA “styles” over time.
+Bar chart showing the bewildering increase in IPA styles over time.
 Millennials clearly to blame.
 
 ``` r
