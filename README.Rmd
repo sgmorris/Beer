@@ -1,7 +1,20 @@
-Tidytuesday Great American Beer Festival
-================
+---
+title: "Tidytuesday Great American Beer Festival"
+output: github_document
+---
 
-``` r
+```{r setup, echo=FALSE, warning=FALSE, message=FALSE}
+# Package loads
+library(ggplot2)
+library(reshape2)
+library(viridis)
+
+# data load
+DAT <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-10-20/beer_awards.csv')
+
+```
+
+```{r ipa}
 # categories including the word "India"
 ipa <- DAT[grep("India", DAT$category),]
 # use factor classes to gather similar names eg "India pale ale" anf "india pale ales"
@@ -39,6 +52,5 @@ ggplot(data=ipa, aes(x=year, y=awards, fill=category)) + geom_bar(stat="identity
   geom_segment(aes(x=2000, y=3, xend=2018, yend=7), col="blue") +
   geom_text(aes(x=2005, y=6, label="Rise of the Hipsters")) + 
   ylab("Number of India ale categories") + ggtitle("IPA used to be IPA")
-```
 
-![](README_files/figure-gfm/ipa-1.png)<!-- -->
+```
